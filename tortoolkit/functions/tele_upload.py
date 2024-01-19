@@ -477,7 +477,7 @@ async def upload_single_file(path, message, force_edit,database=None,thumb_image
     try:
         message_for_progress_display = message
         if not force_edit:
-            data = "upcancel {} {} {}".format(message.chat.id,message.message_id,user_msg.sender_id)
+            data = "upcancel {} {} {}".format(message.chat.id,Message.id,user_msg.sender_id)
             markup = InlineKeyboardMarkup([[InlineKeyboardButton("Cancel Upload", callback_data=data.encode("UTF-8"))]])
             message_for_progress_display = await message.reply_text(
                 "**Starting upload of** `{}`".format(os.path.basename(path)),
